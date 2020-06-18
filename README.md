@@ -49,6 +49,12 @@ visualize el juego en el navegador indicando la siguiente dirección:
 http://localhost:8080/
 ```
 
+# Diseño (diagrama de clases)
+
+<p align="center">
+    <img  src="img/diagrama.png">
+</p>
+
 # Built con
 
 * [Maven](https://maven.apache.org/) - Dependency Management
