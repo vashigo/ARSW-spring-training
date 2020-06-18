@@ -20,12 +20,6 @@ public class TicTacToeApplication {
     @Autowired
     JdbcTemplate jdbcTemplate;
 
-    @RequestMapping("/")
-    @ResponseBody
-    String home() {
-      return "Hello World!";
-    }
-
     @Bean
     public RestTemplate restTemplate(RestTemplateBuilder builder) {
         RestTemplate restTemplate = builder.build();

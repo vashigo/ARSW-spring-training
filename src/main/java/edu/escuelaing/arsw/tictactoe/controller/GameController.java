@@ -29,7 +29,7 @@ public class GameController {
      * @param model Spring framework Model
      * @return Spring framework View name
      */
-    @RequestMapping(value = "/tictactoe", method = RequestMethod.GET)
+    @RequestMapping(value={"", "/", "tictactoe"}, method = RequestMethod.GET)
     public String game(
             HttpSession session,
             Model model) {
