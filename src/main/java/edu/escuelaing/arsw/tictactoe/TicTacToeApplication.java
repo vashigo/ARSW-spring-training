@@ -8,6 +8,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.web.client.RestTemplateBuilder;
 import org.springframework.context.annotation.Bean;
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.client.RestTemplate;
 
 @SpringBootApplication
@@ -18,6 +20,12 @@ public class TicTacToeApplication {
     @Autowired
     JdbcTemplate jdbcTemplate;
 
+    @RequestMapping("/")
+    @ResponseBody
+    String home() {
+      return "Hello World!";
+    }
+
     @Bean
     public RestTemplate restTemplate(RestTemplateBuilder builder) {
         RestTemplate restTemplate = builder.build();
@@ -25,6 +33,6 @@ public class TicTacToeApplication {
     }
 
     public static void main(String[] args) {
-        SpringApplication.run(TicTacToeApplication.class);
+        SpringApplication.run(TicTacToeApplication.class, args);
     }
 }
