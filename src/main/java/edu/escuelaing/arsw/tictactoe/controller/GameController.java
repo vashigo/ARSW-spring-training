@@ -7,8 +7,7 @@ import java.util.Random;
 
 import javax.servlet.http.HttpSession;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -20,7 +19,6 @@ import edu.escuelaing.arsw.tictactoe.states.GameState.*;
 @Controller
 public class GameController {
 
-    private static final Logger log = LoggerFactory.getLogger(GameController.class);
 
     /**
      * Starts new Tic Tac Toe game.
@@ -36,7 +34,7 @@ public class GameController {
 
         GameState gameState = getStateFromSession(session);
         if (gameState == null) {
-            log.info("gameState is null; starting new game");
+
             gameState = new GameState();
             putStateInSession(session, gameState);
         }
@@ -58,7 +56,7 @@ public class GameController {
             HttpSession session,
             Model model) {
 
-        log.info("Resetting new game");
+
         GameState gameState = new GameState();
         putStateInSession(session, gameState);
         model.addAttribute(Constants.GAME_STATE, gameState);
@@ -78,7 +76,7 @@ public class GameController {
             HttpSession session,
             Model model) {
 
-        log.info("Starting new game");
+
         GameState gameState = getStateFromSession(session);
         gameState.startNewGame();
         model.addAttribute(Constants.GAME_STATE, gameState);
@@ -132,11 +130,11 @@ public class GameController {
 
         GameState gameState = getStateFromSession(session);
         model.addAttribute(Constants.GAME_STATE, gameState);
-        log.info("move=(" + row + ", " + col + ")");
+
 
         // If not in the midst of a game, don't allow move.
         if (!gameState.getGameStage().equals(GameStage.IN_GAME)) {
-            log.info("Game not in progress); ignoring move request.");
+
             return Constants.VIEW_GAME;
         }
 
@@ -155,7 +153,7 @@ public class GameController {
         } catch (Exception e) {
             // TODO: Add message to user.  As it is now, move request is
             // ignored, but letting them know would probably be better
-            log.error("Cannot complete move", e);
+
         }
 
         return Constants.VIEW_GAME;
@@ -367,7 +365,7 @@ public class GameController {
                     gameState.getBoard().move(r, c, playerMarker);
                     found = true;
                 } catch (Exception e) {
-                    log.error("Problem making random move!", e);
+
                 }
             }
         }
@@ -382,7 +380,7 @@ public class GameController {
     private GameState getStateFromSession(HttpSession session) {
         GameState gameState = (GameState) session.getAttribute(Constants.GAME_STATE);
         if (gameState == null) {
-            log.info("New GameState created and put in session");
+
             gameState = new GameState();
             putStateInSession(session, gameState);
         }

@@ -1,7 +1,6 @@
 package edu.escuelaing.arsw.tictactoe.board;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+
 
 public class Board {
 
@@ -11,7 +10,7 @@ public class Board {
 
     public Marker[][] board = new Marker[3][3];
 
-    private static final Logger log = LoggerFactory.getLogger(Board.class);
+
 
     /**
      * Clears the TicTacTow board of all of the markers.

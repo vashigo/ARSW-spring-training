@@ -1,8 +1,6 @@
 package edu.escuelaing.arsw.tictactoe.states;
 
 import edu.escuelaing.arsw.tictactoe.board.Board;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 public class GameState {
 
@@ -27,7 +25,6 @@ public class GameState {
     private GameStage gameStage;
     private Board board;
 
-    private static final Logger log = LoggerFactory.getLogger(GameState.class);
 
     public GameState() {
         board = new Board();
